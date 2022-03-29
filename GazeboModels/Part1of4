@@ -1,0 +1,77 @@
+#https://www.youtube.com/watch?v=8ckSl4MbZLg&list=PLTEmcYHVE7dPWixFnzkd68jPjwGzxHjUG
+#Building a simultated model for Gazebo and ROS from scratch
+
+#This website indicates the packages required:
+http://moorerobots.com/blog/post/1
+
+  RRBot
+  R2D2
+  Differential Drive (URDF format)
+  Differential Drive (SDF format)
+
+#The aim of this mini-project is to understand how these robots can be modified in a Gazebo environment
+
+#Step-1: Go to ROS directory
+$ pwd
+
+# E.g /home/jason
+# This will contain mybot_ws, among other things.
+
+
+#Step-2: Clone reposititory (Take note and develop own later?)
+$ git clone -b base https://github.com/richardw05/mybot_ws.git
+
+#Step-3: Check the directory structure
+#It consists of 3 main packages
+
+  mybot_control
+  mybot_description
+  mybot_gazebo
+  
+#Step-4: Build with Catkin
+$ catkin build
+
+#(If this does not work, do this first).
+$ sudo apt-get install python-catkin-tools
+$ catkin build
+
+# If issues STILL arrise in this step
+# https://catkin-tools.readthedocs.io/en/latest/verbs/catkin_build.html
+
+$ export ROS_DISTRO=melodic                                # Set ROS distribution
+$ mkdir -p /tmp/ros_tutorials_ws/src                       # Create workspace
+$ cd /tmp/ros_tutorials_ws/src                             # Navigate to source space
+$ rosinstall_generator --deps ros_tutorials > .rosinstall  # Get list of pakcages
+$ wstool update                                            # Checkout all packages
+$ cd /tmp/ros_tutorials_ws                                 # Navigate to ros workspace root
+$ catkin init                                              # Initialize workspace
+
+#Then preview the build
+$ cd /tmp/ros_tutorials_ws  # Navigate to workspace
+$ catkin build --dry-run    # Show the package build order
+
+# Build the workspace
+
+$ cd /tmp/ros_tutorials_ws  # Navigate to workspace
+$ catkin build              # Build all the packages in the workspace
+$ ls build                  # Show the resulting build space
+$ ls devel                  # Show the resulting devel space
+
+# Then try roslaunch
+# If an issue persists (like)...
+
+python-roslaunch : Depends: python-roslib but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+
+# Packages need fixing
+$ sudo apt install python-roslaunch
+
+# If that does not work
+# Wait...just realised the tutorial is for ROS Kinetic....
+# Individual packages will be posted on Github and then the tutorial will reconvene. 
+
+# Output was:
+bash: /opt/ros/kinetic/setup.bash: No such file or directory
+bash: /opt/ros/kinetic/setup.bash: No such file or directory
+
+

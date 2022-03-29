@@ -1,0 +1,19 @@
+- name: CSIRO
+  type: research institute
+  lat: -27.529281
+  long: 152.910363
+- name: CSIRO, Hobart
+  type: research institute
+  lat: -42.886794
+  long: 147.338086
+- name: Chris Meaclem
+  type: other
+  lat: -43.524167
+  long: 172.582726
+  link: http://nz.linkedin.com/in/chrismeaclem/
+- name: Robots & Dinosuaurs, Sydney Makerspace
+  type: other
+  lat: -33.815556
+  long: 151.089237
+  description: Sydney Makerspace, Home of the Sydney ROS Users group
+  link: http://robodino.org
